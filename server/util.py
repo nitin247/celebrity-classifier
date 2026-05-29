@@ -4,6 +4,7 @@ import numpy as np
 import base64
 import cv2
 from wavelet import w2d
+from pathlib import Path
 
 __class_name_to_number = {}
 __class_number_to_name = {}
@@ -40,13 +41,17 @@ def load_saved_artifacts():
     global __class_name_to_number
     global __class_number_to_name
 
-    with open("artifacts/class_dictionary.json", "r") as f:
+    script_dir = Path(__file__)
+    artifact_path = script_dir / "artifacts" / "class_dictionary.json"
+    artifact_path2 = script_dir / "artifacts" / "saved_model.pkl"
+    
+    with open(artifact_path, "r") as f:
         __class_name_to_number = json.load(f)
         __class_number_to_name = {v:k for k,v in __class_name_to_number.items()}
 
     global __model
     if __model is None:
-        with open('artifacts/saved_model.pkl', 'rb') as f:
+        with open(artifact_path2, 'rb') as f:
             __model = joblib.load(f,'r+',False)
     print("loading saved artifacts...done")
 
