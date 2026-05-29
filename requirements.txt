@@ -3,6 +3,4 @@ numpy
 streamlit
 opencv-python
 joblib
-cv2
-wavelet
-pywt
+PyWavelets
