@@ -3,8 +3,12 @@ import pandas as pd
 import base64
 import sys
 from pathlib import Path
-script_dir = Path(__file__).parent.resolve() / "server"
-sys.path.append(script_dir)
+
+# Get the directory of the current running script
+root_dir = Path(__file__).resolve().parent.parent
+# Locate a relative folder (e.g., a sibling directory called 'server')
+utils_dir = current_dir / "server"
+sys.path.append(str(utils_dir))
 import util
 
 # --- Configuration & Styling ---
