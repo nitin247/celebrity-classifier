@@ -2,6 +2,7 @@ import streamlit as st
 import pandas as pd
 import requests
 import base64
+from pathlib import Path
 
 # --- Configuration & Styling ---
 st.set_page_config(page_title="Sports Person Classifier", page_icon="⚽", layout="wide")
@@ -69,12 +70,14 @@ def find_best_match(api_data):
 st.markdown("<h1 style='text-align: center; color: #2b6cb0; margin-bottom: 2rem;'>Sports Person Classifier</h1>", unsafe_allow_html=True)
 
 # 1. Player Roster
+script_dir = Path(__file__).parent.resolve()
+images_path = script_dir / "images"
 players = [
-    {"id": "lionel_messi", "name": "Lionel Messi", "img": "./images/messi.jpeg"},
-    {"id": "maria_sharapova", "name": "Maria Sharapova", "img": "./images/sharapova.jpeg"},
-    {"id": "roger_federer", "name": "Roger Federer", "img": "./images/federer.jpeg"},
-    {"id": "serena_williams", "name": "Serena Williams", "img": "./images/serena.jpeg"},
-    {"id": "virat_kohli", "name": "Virat Kohli", "img": "./images/virat.jpeg"}
+    {"id": "lionel_messi", "name": "Lionel Messi", "img": images_path + "messi.jpeg"},
+    {"id": "maria_sharapova", "name": "Maria Sharapova", "img":  images_path + "sharapova.jpeg"},
+    {"id": "roger_federer", "name": "Roger Federer", "img":  images_path + "federer.jpeg"},
+    {"id": "serena_williams", "name": "Serena Williams", "img":  images_path + "serena.jpeg"},
+    {"id": "virat_kohli", "name": "Virat Kohli", "img":  images_path + "virat.jpeg"}
 ]
 
 cols = st.columns(5)
