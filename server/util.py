@@ -3,8 +3,12 @@ import json
 import numpy as np
 import base64
 import cv2
+import sys
 from wavelet import w2d
 from pathlib import Path
+import sklearn.preprocessing
+# Alias the modern preprocessing module to match the legacy path expected by pickle
+sys.modules['sklearn.preprocessing.data'] = sklearn.preprocessing
 
 __class_name_to_number = {}
 __class_number_to_name = {}
