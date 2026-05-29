@@ -7,8 +7,10 @@ import sys
 from wavelet import w2d
 from pathlib import Path
 import sklearn.preprocessing
+import sklearn.svm
 # Alias the modern preprocessing module to match the legacy path expected by pickle
 sys.modules['sklearn.preprocessing.data'] = sklearn.preprocessing
+sys.modules['sklearn.svm.classes'] = sklearn.svm
 
 __class_name_to_number = {}
 __class_number_to_name = {}
