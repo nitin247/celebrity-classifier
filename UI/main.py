@@ -7,7 +7,7 @@ from pathlib import Path
 # Get the directory of the current running script
 root_dir = Path(__file__).resolve().parent.parent
 # Locate a relative folder (e.g., a sibling directory called 'server')
-utils_dir = current_dir / "server"
+utils_dir = root_dir / "server"
 sys.path.append(str(utils_dir))
 import util
 
