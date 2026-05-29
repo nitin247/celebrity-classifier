@@ -70,7 +70,7 @@ def get_cv2_image_from_base64_string(b64str):
     '''
     if ',' in b64str:
         encoded_data = b64str.split(',')[1]
-    else
+    else:
         encoded_data = b64str  # It's already raw Base64
     
     nparr = np.frombuffer(base64.b64decode(encoded_data), np.uint8)
