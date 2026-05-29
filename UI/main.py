@@ -118,7 +118,8 @@ with col2:
             st.warning("Please upload an image first.")
         else:
             with st.spinner('Analyzing image via API...'):
-                raw_data = classify_image_face(uploaded_file.getvalue(), uploaded_file.type)
+                base64_string = base64.b64encode(uploaded_file.getvalue()).decode('utf-8')
+                raw_data = classify_image_face(base64_string, uploaded_file.type)
                 match = find_best_match(raw_data)
                 
                 if not match:
