@@ -1,0 +1,8 @@
+flask
+numpy
+streamlit
+opencv
+joblib
+cv2
+wavelet
+pywt
