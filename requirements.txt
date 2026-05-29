@@ -1,5 +1,6 @@
 flask
 numpy
+pandas
 streamlit
 opencv-python-headless
 joblib
