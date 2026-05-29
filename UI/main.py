@@ -3,6 +3,7 @@ import pandas as pd
 import base64
 import sys
 from pathlib import Path
+from flask import jsonify
 
 # Get the directory of the current running script
 root_dir = Path(__file__).resolve().parent.parent
