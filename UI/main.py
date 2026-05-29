@@ -44,7 +44,8 @@ PLAYER_DISPLAY_NAMES = {
 # --- Service Layer ---
 def classify_image_face(file_bytes, mime_type):
     util.load_saved_artifacts()
-    response = jsonify(util.classify_image(file_bytes))    
+    # response = jsonify(util.classify_image(file_bytes))    
+    response = util.classify_image(file_bytes)
     # Construct the dataURL format expected by the API
     return response
 
