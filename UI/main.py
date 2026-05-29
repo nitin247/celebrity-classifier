@@ -1,9 +1,11 @@
 import streamlit as st
 import pandas as pd
 import base64
+import sys
 from pathlib import Path
 script_dir = Path(__file__).parent.resolve() / "server"
-from script_dir import util
+sys.path.append(script_dir)
+import util
 
 # --- Configuration & Styling ---
 st.set_page_config(page_title="Sports Person Classifier", page_icon="⚽", layout="wide")
