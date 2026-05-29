@@ -3,5 +3,5 @@ numpy
 streamlit
 opencv-python-headless
 joblib
-scikit-learn
+scikit-learn==1.7
 PyWavelets
