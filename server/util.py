@@ -69,9 +69,9 @@ def get_cv2_image_from_base64_string(b64str):
     :return:
     '''
     if ',' in b64str:
-    encoded_data = b64str.split(',')[1]
+        encoded_data = b64str.split(',')[1]
     else
-    encoded_data = b64str  # It's already raw Base64
+        encoded_data = b64str  # It's already raw Base64
     
     nparr = np.frombuffer(base64.b64decode(encoded_data), np.uint8)
     img = cv2.imdecode(nparr, cv2.IMREAD_COLOR)
