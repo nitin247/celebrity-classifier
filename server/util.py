@@ -41,7 +41,7 @@ def load_saved_artifacts():
     global __class_name_to_number
     global __class_number_to_name
 
-    script_dir = Path(__file__)
+    script_dir = Path(__file__).parent.resolve()
     artifact_path = script_dir / "artifacts" / "class_dictionary.json"
     artifact_path2 = script_dir / "artifacts" / "saved_model.pkl"
     
