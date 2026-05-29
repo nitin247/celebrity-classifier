@@ -1,8 +1,9 @@
 import streamlit as st
 import pandas as pd
-import requests
 import base64
 from pathlib import Path
+script_dir = Path(__file__).parent.resolve() / "server"
+from script_dir import util
 
 # --- Configuration & Styling ---
 st.set_page_config(page_title="Sports Person Classifier", page_icon="⚽", layout="wide")
@@ -34,21 +35,11 @@ PLAYER_DISPLAY_NAMES = {
 }
 
 # --- Service Layer ---
-def classify_image(file_bytes, mime_type):
-    """Encapsulates the external API interaction and data parsing."""
-    url = "https://celebrity-classifier-nitin-pant.streamlit.app/classify_image"
-    
+def classify_image_face(file_bytes, mime_type):
+    util.load_saved_artifacts()
+    response = jsonify(util.classify_image(image_data))    
     # Construct the dataURL format expected by the API
-    b64_str = base64.b64encode(file_bytes).decode('utf-8')
-    data_url = f"data:{mime_type};base64,{b64_str}"
-    
-    try:
-        response = requests.post(url, data={'image_data': data_url}, timeout=15)
-        response.raise_for_status()
-        return response.json()
-    except requests.exceptions.RequestException as e:
-        st.error(f"API Connection Error: {str(e)}")
-        return None
+    return response
 
 def find_best_match(api_data):
     """Replicates the JS logic to find the face with the highest probability score."""
@@ -119,7 +110,7 @@ with col2:
             st.warning("Please upload an image first.")
         else:
             with st.spinner('Analyzing image via API...'):
-                raw_data = classify_image(uploaded_file.getvalue(), uploaded_file.type)
+                raw_data = classify_image_face(uploaded_file.getvalue(), uploaded_file.type)
                 match = find_best_match(raw_data)
                 
                 if not match:
