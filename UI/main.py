@@ -72,7 +72,6 @@ st.markdown("<h1 style='text-align: center; color: #2b6cb0; margin-bottom: 2rem;
 # 1. Player Roster
 script_dir = Path(__file__).parent.resolve()
 images_path = script_dir / "images"
-f"Hello, {user_name}!"
 players = [
     {"id": "lionel_messi", "name": "Lionel Messi", "img": f"{images_path}messi.jpeg"},
     {"id": "maria_sharapova", "name": "Maria Sharapova", "img": f"{images_path}sharapova.jpeg"},
