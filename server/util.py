@@ -14,7 +14,7 @@ sys.modules['sklearn.svm.classes'] = sklearn.svm
 
 current_dir = Path(__file__).resolve().parent
 # Locate a relative folder (e.g., a sibling directory called 'server')
-oh_dir = root_dir / "opencv" / "haarcascades"
+oh_dir = current_dir / "opencv" / "haarcascades"
 
 __class_name_to_number = {}
 __class_number_to_name = {}
