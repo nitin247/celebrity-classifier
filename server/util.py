@@ -12,6 +12,10 @@ import sklearn.svm
 sys.modules['sklearn.preprocessing.data'] = sklearn.preprocessing
 sys.modules['sklearn.svm.classes'] = sklearn.svm
 
+current_dir = Path(__file__).resolve().parent
+# Locate a relative folder (e.g., a sibling directory called 'server')
+oh_dir = root_dir / "opencv" / "haarcascades"
+
 __class_name_to_number = {}
 __class_number_to_name = {}
 
@@ -78,8 +82,11 @@ def get_cv2_image_from_base64_string(b64str):
     return img
 
 def get_cropped_image_if_2_eyes(image_path, image_base64_data):
-    face_cascade = cv2.CascadeClassifier('./opencv/haarcascades/haarcascade_frontalface_default.xml')
-    eye_cascade = cv2.CascadeClassifier('./opencv/haarcascades/haarcascade_eye.xml')
+    fc_path = oh_dir / "haarcascade_frontalface_default.xml"
+    ec_path = oh_dir / "haarcascade_eye.xml"
+    
+    face_cascade = cv2.CascadeClassifier(fc_path)
+    eye_cascade = cv2.CascadeClassifier(ec_path)
 
     if image_path:
         img = cv2.imread(image_path)
