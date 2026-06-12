@@ -4,5 +4,4 @@ pandas
 streamlit
 opencv-python-headless
 joblib
-scikit-learn==0.21.3
 PyWavelets
