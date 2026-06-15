@@ -6,7 +6,7 @@ from pathlib import Path
 from flask import jsonify
 
 # Get the directory of the current running script
-root_dir = Path(__file__).resolve().parent.parent
+root_dir = Path(__file__).parent.parent.resolve()
 # Locate a relative folder (e.g., a sibling directory called 'server')
 utils_dir = root_dir / "server"
 sys.path.append(str(utils_dir))
