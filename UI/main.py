@@ -11,7 +11,7 @@ root_dir = Path(__file__).parent.parent.resolve()
 # Locate a relative folder (e.g., a sibling directory called 'server')
 utils_dir = root_dir / "server"
 sys.path.append(str(utils_dir))
-logging.info((str(utils_dir))
+logging.info((str(utils_dir)))
 import util
 
 # --- Configuration & Styling ---
